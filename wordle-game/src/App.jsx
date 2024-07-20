@@ -13,6 +13,7 @@ function App() {
   const [guess6, setGuess6] = useState("");
   const [guess, setGuess] = useState(1);
   const [currGuess, setCurrGuess] = useState("");
+  const word = "house";
 
   function something(e) {
     if (guess == 1) {
@@ -39,6 +40,7 @@ function App() {
   function handleEnter(e) {
     if (e.key === "Enter") {
       setGuess(guess + 1);
+      setGuessed(guessed+currGuess)
       setCurrGuess("");
     }
   }
@@ -53,15 +55,15 @@ function App() {
         onKeyDown={handleEnter}
         value={currGuess}
       />
-        <Letters guessedWord={guess1}></Letters>
-        <Letters guessedWord={guess2}></Letters>
-        <Letters guessedWord={guess3}></Letters>
-        <Letters guessedWord={guess4}></Letters>
-        <Letters guessedWord={guess5}></Letters>
-        <Letters guessedWord={guess6}></Letters>
+        <Letters guessedWord={guess1} word={word}></Letters>
+        <Letters guessedWord={guess2} word={word}></Letters>
+        <Letters guessedWord={guess3} word={word}></Letters>
+        <Letters guessedWord={guess4} word={word}></Letters>
+        <Letters guessedWord={guess5} word={word}></Letters>
+        <Letters guessedWord={guess6} word={word}></Letters>
       </div>
 
-      <Keyboard guessedKeys={guessed} word="lazie"></Keyboard>
+      <Keyboard guessedKeys={guessed} word={word}></Keyboard>
     </>
   );
 }
