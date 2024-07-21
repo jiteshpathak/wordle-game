@@ -24,11 +24,11 @@ export default function Letters({guessedWord, word, check}) {
   }
     return (
     <div className='flex justify-center gap-2 pb-1 pt-2'>
-      <kbd className={`${compare(0)} ${highlight(0)}`}>{guessedWord.charAt(0)}</kbd>
-      <kbd className={`${compare(1)} ${highlight(1)}`}>{guessedWord.charAt(1)}</kbd>
-      <kbd className={`${compare(2)} ${highlight(2)}`}>{guessedWord.charAt(2)}</kbd>
-      <kbd className={`${compare(3)} ${highlight(3)}`}>{guessedWord.charAt(3)}</kbd>
-      <kbd className={`${compare(4)} ${highlight(4)}`}>{guessedWord.charAt(4)}</kbd>
+      <kbd className={`${compare(0)} ${highlight(0)}`}>{guessedWord.charAt(0).toUpperCase()}</kbd>
+      <kbd className={`${compare(1)} ${highlight(1)}`}>{guessedWord.charAt(1).toUpperCase()}</kbd>
+      <kbd className={`${compare(2)} ${highlight(2)}`}>{guessedWord.charAt(2).toUpperCase()}</kbd>
+      <kbd className={`${compare(3)} ${highlight(3)}`}>{guessedWord.charAt(3).toUpperCase()}</kbd>
+      <kbd className={`${compare(4)} ${highlight(4)}`}>{guessedWord.charAt(4).toUpperCase()}</kbd>
     </div>
   )
 }
