@@ -5,7 +5,20 @@ import GamePage from "./pages/GamePage"
 
 
 function App() {
-  const { isSignedIn, user, isLoaded } = useUser();
+  const [info, setInfo] = useState("")
+  useEffect(() => {
+    async function getData() {
+        try {
+          const response = await fetch("http://localhost:3000");
+          const data = await response.json();
+          setInfo(data)
+        } catch (error) {
+          console.log(error);
+      }
+    }
+    getData();
+  }, []);
+  const { user } = useUser();
   const [name, setName] = useState("")
 
   useEffect(() => {
@@ -14,7 +27,7 @@ function App() {
       console.log(user.fullName);
     }
   }, [user]);
-  
+  console.log(info);
   return (
     <>
     <SignedOut>
@@ -25,6 +38,7 @@ function App() {
       </GamePage>
         <UserButton />
       </SignedIn>
+      {info}
     </>
   );
 }
