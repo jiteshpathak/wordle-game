@@ -1,15 +1,20 @@
 import React from 'react'
 
-export default function Letters({guessedWord, word}) {
+export default function Letters({guessedWord, word, check}) {
   function compare(a){
+    if (check) {
     if (guessedWord.charAt(a)==word.charAt(a)){
         return "kbd bg-green-500"
     }
-    else if(word.includes(guessedWord.charAt(a))){
+    else if (word.includes(guessedWord.charAt(a))){
         return "kbd bg-yellow-500"
     }
+    else {
+        return "kbd bg-gray-500"
+    }
+  }
     else{
-        return "kbd"
+      return "kbd"
     }
   }
     return (
