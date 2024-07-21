@@ -5,6 +5,10 @@ import Letters from "./components/Letters";
 import Loading from "./components/Loading";
 import Won from "./components/Won";
 import NotWin from "./components/NotWin";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+
 
 function App() {
   const [load, setLoad] = useState(true);
@@ -95,18 +99,19 @@ function App() {
     return <Loading />;
   }
 
-  if (checkAns == answer) {
+  if (checkAns == answer && guess > 1) {
     return <Won guessCount={guess}> </Won>;
-  }
-  else if (checkAns != answer & guess==7){
-    return <NotWin guessCount={guess} actualWord={answer}></NotWin>
+  } else if ((checkAns != answer) & (guess == 7)) {
+    return <NotWin guessCount={guess} actualWord={answer}></NotWin>;
   }
   return (
     <>
-      <div className="">
+      <Header>
+      </Header>
+      <div>
         <input
           type="text"
-          className="input w-full h-full absolute z-50 text-transparent bg-transparent decoration-transparent focus:outline-none  cursor-default"
+          className="input w-full h-full absolute z-50 text-transparent bg-transparent decoration-transparent focus:outline-none  cursor-default border-none"
           onChange={something}
           onKeyDown={handleEnter}
           value={currGuess}
@@ -122,6 +127,7 @@ function App() {
       </div>
 
       <Keyboard guessedKeys={guessed} word={answer}></Keyboard>
+      <Footer></Footer>
     </>
   );
 }

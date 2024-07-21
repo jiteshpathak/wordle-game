@@ -1,12 +1,17 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+
 
 export default function Won({ guessCount }) {
   function Refresh() {
     window.location.reload(false);
   }
   return (
+    <>
     <div>
-      <div className="toast toast-center toast-middle">
+      <Header></Header>
+      <div className="toast toast-center toast-middle font-sans">
         <div className="alert alert-success">
           <span>You Won!</span>
           <span>You guessed it in {guessCount - 1} attempts</span>
@@ -23,5 +28,7 @@ export default function Won({ guessCount }) {
         </div>
       </div>
     </div>
+    <Footer></Footer>
+    </>
   );
 }
