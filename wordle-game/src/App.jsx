@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/clerk-react";
-import GamePage from "./pages/GamePage"
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  useUser,
+} from "@clerk/clerk-react";
+import GamePage from "./pages/GamePage";
 
 function App() {
-  const [info, setInfo] = useState("")
+  const [info, setInfo] = useState("");
   useEffect(() => {
     async function getData() {
-        try {
-          const response = await fetch("http://localhost:3000");
-          const data = await response.json();
-          setInfo(data)
-        } catch (error) {
-          console.log(error);
+      try {
+        const response = await fetch("http://localhost:3000");
+        const data = await response.json();
+        setInfo(data);
+      } catch (error) {
+        console.log(error);
       }
     }
     getData();
   }, []);
   const { user } = useUser();
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -30,13 +35,12 @@ function App() {
   console.log(info);
   return (
     <>
-    <SignedOut>
+      <SignedOut>
         <SignInButton />
       </SignedOut>
       <SignedIn>
-      <GamePage username={name}>
-      </GamePage>
         <UserButton />
+        <GamePage username={name}></GamePage>
       </SignedIn>
       {info}
     </>
