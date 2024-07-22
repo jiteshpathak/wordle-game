@@ -91,9 +91,9 @@ function Game({username}) {
     }
   }
   console.log(guess);
-  setInterval(() => {
-    setLoad(false);
-  }, 500);
+  // setInterval(() => {
+  //   setLoad(false);
+  // }, );
   if (load) {
     return <Loading />;
   }

@@ -11,19 +11,53 @@ import GamePage from "./pages/GamePage";
 
 function App() {
   const [info, setInfo] = useState("");
-  useEffect(() => {
-    async function getData() {
+  const [signin, setSignin] = useState(false)
+  const { user, isSignedIn } = useUser();
+  // console.log(user.firstName);
+  // useEffect(() => {
+  //   async function getData() {
+  //     try {
+  //       const response = await fetch("http://localhost:3000");
+  //       const data = await response.json();
+  //       setInfo(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   getData();
+  // }, []);
+console.log(isSignedIn);
+useEffect(() => {
+    if (isSignedIn){
+    async function insertUserID() {
       try {
-        const response = await fetch("http://localhost:3000");
+        const response = await fetch(
+          `http://localhost:3000/addplayer/${user.id}`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: user.id,
+              name: user.fullName,
+              wins: 0,
+              attempts: 0,
+            }),
+          }
+        );
         const data = await response.json();
         setInfo(data);
       } catch (error) {
         console.log(error);
       }
     }
-    getData();
-  }, []);
-  const { user } = useUser();
+    insertUserID();
+  }
+  }, [isSignedIn]);
+// }
+
   const [name, setName] = useState("");
 
   useEffect(() => {
@@ -33,6 +67,8 @@ function App() {
     }
   }, [user]);
   console.log(info);
+
+
   return (
     <>
       <SignedOut>
@@ -42,7 +78,6 @@ function App() {
         <UserButton />
         <GamePage username={name}></GamePage>
       </SignedIn>
-      {info}
     </>
   );
 }
