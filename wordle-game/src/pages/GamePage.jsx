@@ -100,9 +100,9 @@ function Game({username}) {
   }
 
   if (checkAns == answer && guess > 1) {
-    return <Won guessCount={guess} id= {username}> </Won>;
+    return <Won guessCount={guess} id={username}> </Won>;
   } else if ((checkAns != answer) & (guess == 7)) {
-    return <NotWin guessCount={guess} actualWord={answer}></NotWin>;
+    return <NotWin guessCount={guess} actualWord={answer} id={username}></NotWin>;
   }
   return (
     <>

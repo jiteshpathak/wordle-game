@@ -50,3 +50,15 @@ app.patch("/wins/:uid", async (req,res) => {
     console.log(error);
   }  
 })
+
+app.patch("/attempts/:uid", async (req,res) => {
+  try {
+    let query = await playerModel.updateOne(
+      {id : req.params.uid},
+      {$inc : {attempts:1}}
+    )
+    res.json("added 1 attempt to logged in user")
+  } catch (error) {
+    console.log(error);
+  }  
+})

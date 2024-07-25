@@ -1,11 +1,25 @@
-import React from "react";
+import React, {useState, useRef, useEffect} from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function NotWin({ guessCount, actualWord }) {
+export default function NotWin({ guessCount, actualWord, id }) {
   function Refresh() {
     window.location.reload(false);
   }
+  const addedAttempt = useRef(false);
+
+  useEffect(() => {
+    async function LOSE() {
+      if (addedAttempt.current) return;
+      addedAttempt.current = true;
+      console.log("boo!");
+      const response = await fetch(`http://localhost:3000/attempts/${id}`, {
+        method: "PATCH"
+      });
+    }
+    LOSE();
+  }, [id]);
+
   return (
     <>
       <Header></Header>
