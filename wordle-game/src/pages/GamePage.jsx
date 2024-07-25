@@ -10,6 +10,7 @@ import {useUser } from "@clerk/clerk-react";
 
 
 function Game({username}) {
+  console.log(username)
   const [load, setLoad] = useState(true);
   const [answer, setAnswer] = useState("");
   useEffect(() => {
@@ -17,7 +18,7 @@ function Game({username}) {
       if (!answer) {
         try {
           const response = await fetch(
-            "https://random-word-api.herokuapp.com/word?lang=en&length=5"
+            "https://random-word.ryanrk.com/api/en/word/random/?length=5"
           );
           const data = await response.json();
           setAnswer(data[0]);
@@ -99,7 +100,7 @@ function Game({username}) {
   }
 
   if (checkAns == answer && guess > 1) {
-    return <Won guessCount={guess}> </Won>;
+    return <Won guessCount={guess} id= {username}> </Won>;
   } else if ((checkAns != answer) & (guess == 7)) {
     return <NotWin guessCount={guess} actualWord={answer}></NotWin>;
   }

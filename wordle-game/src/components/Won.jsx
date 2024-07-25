@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
 
 
-export default function Won({ guessCount }) {
+export default function Won({ guessCount, id}) {
+  console.log(id);
   function Refresh() {
     window.location.reload(false);
   }
+  const addedwin = useRef(false);
+
+  useEffect(() => {
+    async function WIN() {
+      if (addedwin.current) return;
+      addedwin.current = true;
+      console.log("okay");
+      const response = await fetch(`http://localhost:3000/wins/${id}`, {
+        method: "PATCH"
+      });
+    }
+    WIN();
+  }, [id]);
+
+
+
+
+
   return (
     <>
     <div>

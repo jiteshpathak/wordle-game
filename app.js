@@ -17,15 +17,13 @@ app.listen(3000, () => {
 
 app.post("/addplayer/:uid", async (req, res) => {
   let data = req.body;
-  let user = await playerModel.find({
-    id: req.params.uid,
-  });
+  let user = await playerModel.findOne({id: req.params.uid,});
   console.log(user);
 //   let arr = [];
   if (user.length == 0) {
-    console.log("user is in if");
+    console.log("user being created");
     try {
-      let response = await playerModel.insertMany({
+      let response = await playerModel.create({
         id: data.id,
         name: data.name,
         wins: data.wins,
@@ -40,3 +38,15 @@ app.post("/addplayer/:uid", async (req, res) => {
     console.log("user already exists");
   }
 });
+
+app.patch("/wins/:uid", async (req,res) => {
+  try {
+    let query = await playerModel.updateOne(
+      {id : req.params.uid},
+      {$inc : {wins:1}}
+    )
+    res.json("added 1 to logged in user")
+  } catch (error) {
+    console.log(error);
+  }  
+})

@@ -62,7 +62,7 @@ useEffect(() => {
 
   useEffect(() => {
     if (user) {
-      setName(user.fullName);
+      setName(user.id);
       console.log(user.fullName);
     }
   }, [user]);
