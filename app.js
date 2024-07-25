@@ -62,3 +62,7 @@ app.patch("/attempts/:uid", async (req,res) => {
     console.log(error);
   }  
 })
+
+app.get("/leaderboard", async(req,res) =>{
+  res.send("This is leaderboard")
+})

@@ -72,11 +72,12 @@ useEffect(() => {
   return (
     <>
       <SignedOut>
-        <SignInButton />
+        <SignInButton>
+          <button className="btn btn-lg ">Register</button>
+        </SignInButton>
       </SignedOut>
       <SignedIn>
-        <UserButton />
-        <GamePage username={name}></GamePage>
+        <GamePage></GamePage>
       </SignedIn>
     </>
   );
