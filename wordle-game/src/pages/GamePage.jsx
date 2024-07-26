@@ -18,7 +18,7 @@ function Game({username}) {
       if (!answer) {
         try {
           const response = await fetch(
-            "https://random-word.ryanrk.com/api/en/word/random/?length=5"
+            "https://random-word-api.herokuapp.com/word?lang=en&length=5"
           );
           const data = await response.json();
           setAnswer(data[0]);
