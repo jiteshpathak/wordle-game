@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "../../wordle-game/src/App.css";
 import {
   SignedIn,
   SignedOut,
@@ -7,7 +7,7 @@ import {
   UserButton,
   useUser,
 } from "@clerk/clerk-react";
-import GamePage from "./pages/GamePage";
+import GamePage from "../../wordle-game/src/pages/GamePage";
 
 function App() {
   const [info, setInfo] = useState("");
