@@ -9,7 +9,7 @@ import Header from "../components/Header";
 import {useUser } from "@clerk/clerk-react";
 
 
-function Game({username}) {
+function GamePage({username}) {
   console.log(username)
   const [load, setLoad] = useState(true);
   const [answer, setAnswer] = useState("");
@@ -132,4 +132,4 @@ function Game({username}) {
     </>
   );
 }
-export default Game;
+export default GamePage;

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "../../server/app.js";
+import App from "../../server/api/index.jsx";
 import "./index.css";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -19,9 +19,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/leaderboard",
-    element: <Leaderboard/>
-  }
-])
+    element: <Leaderboard/>,
+  },
+],
+{basename: import.meta.env.BASE_URL})
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
