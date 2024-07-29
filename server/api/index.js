@@ -61,30 +61,32 @@ app.patch("/attempts/:uid", async (req, res) => {
   }
 });
 
-function arrange(array) {
-  for (let i = 0; i < array.length - 1; i++) {
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[i].wins < array[j].wins) {
-        let a = array[i];
-        let b = array[j];
-        array[i] = b;
-        array[j] = a;
-      }
-    }
-  }
-}
+// function arrange(array) {
+//   for (let i = 0; i < array.length - 1; i++) {
+//     for (let j = i + 1; j < array.length; j++) {
+//       if (array[i].wins < array[j].wins) {
+//         let a = array[i];
+//         let b = array[j];
+//         array[i] = b;
+//         array[j] = a;
+//       }
+//     }
+//   }
+// }
 
 app.get("/leaderboard", async (req, res) => {
-  const data = await playerModel.find();
+  const data = await playerModel.find().sort({
+    wins : -1
+  });
 
   players = [];
-  for (let i = 0; i < data.length; i++) {
-    players.push({
-      names: data[i].name,
-      wins: data[i].wins,
-      attempts: data[i].attempts,
-    });
-  }
-  arrange(players);
-  res.json(players);
+//   for (let i = 0; i < data.length; i++) {
+//     players.push({
+//       names: data[i].name,
+//       wins: data[i].wins,
+//       attempts: data[i].attempts,
+//     });
+//   }
+//   arrange(players);
+  res.json(data);
 });
