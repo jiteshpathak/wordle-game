@@ -77,7 +77,7 @@ useEffect(() => {
         </SignInButton>
       </SignedOut>
       <SignedIn>
-        <GamePage></GamePage>
+        <GamePage username={user.id}></GamePage>
       </SignedIn>
     </>
   );

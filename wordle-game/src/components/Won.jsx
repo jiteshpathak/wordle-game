@@ -16,6 +16,7 @@ export default function Won({ guessCount, id}) {
       if (addedwin.current) return;
       addedwin.current = true;
       console.log("okay");
+      console.log(id);
       const response = await fetch(`https://termle-server.vercel.app/wins/${id}`, {
         method: "PATCH"
       });

@@ -106,7 +106,6 @@ function GamePage({username}) {
   }
   return (
     <>
-    {username}
       <Header>
       </Header>
       <div>
