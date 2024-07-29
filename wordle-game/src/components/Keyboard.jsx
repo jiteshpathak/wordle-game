@@ -49,8 +49,8 @@ export default function Keyboard({ guessedKeys, word }) {
   }
 
   return (
-    <div className=" pt-36">
-      <div className="my-1 flex w-full justify-center gap-1 ">
+    <div className=" pt-5">
+      <div className="flex w-full justify-center gap-1 ">
         <kbd className={colour("q")}>q</kbd>
         <kbd className={colour("w")}>w</kbd>
         <kbd className={colour("e")}>e</kbd>

@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const database = require("./database");
-const playerModel = require("./database/model/Player");
+const database = require("../database");
+const playerModel = require("../database/model/Player");
 
 const app = express();
 

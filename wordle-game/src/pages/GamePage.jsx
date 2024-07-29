@@ -112,7 +112,7 @@ function GamePage({username}) {
       <div>
         <input
           type="text"
-          className="input w-full h-full absolute text-transparent bg-transparent decoration-transparent focus:outline-none  cursor-default border-none"
+          className="input w-full h-[400px] h-max-[400px] absolute text-transparent bg-transparent decoration-transparent focus:outline-none  cursor-default border-none"
           onChange={something}
           onKeyDown={handleEnter}
           value={currGuess}

@@ -1,6 +1,5 @@
 import React from "react";
 import { UserButton } from "@clerk/clerk-react";
-import Leaderboard from "./Leaderboard";
 export default function Header() {
   return (
     // <div>
@@ -22,7 +21,6 @@ export default function Header() {
       <div className="flex-none gap-2">
         <a className="gap-2 p-4 font-black text-xl font-sans" href="/leaderboard">
           Leaderboard
-          <Leaderboard></Leaderboard>
         </a>
         <UserButton></UserButton>
       </div>
