@@ -38,7 +38,7 @@ const Leaderboard = () => {
                   <>
                     <tr key={index}>
                       <th>{index + 1}</th>
-                      <td>{players.names}</td>
+                      <td>{players.name}</td>
                       <td>{players.wins}</td>
                       <td>{players.attempts}</td>
                     </tr>
