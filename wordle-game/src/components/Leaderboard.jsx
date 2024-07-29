@@ -10,7 +10,7 @@ const Leaderboard = () => {
     async function getRank() {
       if (rank.current) return;
       rank.current = true;
-      const response = await fetch("http://localhost:3000/leaderboard");
+      const response = await fetch("https://termle-server.vercel.app/leaderboard");
       let values = await response.json();
       setValue(values);
     }

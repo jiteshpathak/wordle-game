@@ -17,7 +17,7 @@ function App() {
   // useEffect(() => {
   //   async function getData() {
   //     try {
-  //       const response = await fetch("http://localhost:3000");
+  //       const response = await fetch("https://termle-server.vercel.app");
   //       const data = await response.json();
   //       setInfo(data);
   //     } catch (error) {
@@ -32,7 +32,7 @@ useEffect(() => {
     async function insertUserID() {
       try {
         const response = await fetch(
-          `http://localhost:3000/addplayer/${user.id}`,
+          `https://termle-server.vercel.app/addplayer/${user.id}`,
           {
             method: "POST",
             headers: {

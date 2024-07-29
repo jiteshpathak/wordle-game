@@ -13,7 +13,7 @@ export default function NotWin({ guessCount, actualWord, id }) {
       if (addedAttempt.current) return;
       addedAttempt.current = true;
       console.log("boo!");
-      const response = await fetch(`http://localhost:3000/attempts/${id}`, {
+      const response = await fetch(`https://termle-server.vercel.app/attempts/${id}`, {
         method: "PATCH"
       });
     }
